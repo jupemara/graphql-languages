@@ -5,6 +5,7 @@ package graph
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/jupemara/graphql-languages/gqlgen/graph/generated"
 	"github.com/jupemara/graphql-languages/gqlgen/graph/model"
@@ -19,6 +20,11 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 	}, nil
 }
 
+// DeleteTodo is the resolver for the deleteTodo field.
+func (r *mutationResolver) DeleteTodo(ctx context.Context, id string) (*model.Todo, error) {
+	panic(fmt.Errorf("not implemented: DeleteTodo - deleteTodo"))
+}
+
 // Todos is the resolver for the todos field.
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	vs := todosUsecase.Execute()
@@ -30,7 +36,6 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 		})
 	}
 	return todos, nil
-
 }
 
 // Mutation returns generated.MutationResolver implementation.
